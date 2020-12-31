@@ -8,10 +8,10 @@ plugins {
     kotlin("kapt") version "1.4.21"
     kotlin("plugin.noarg") version "1.4.21"
 
-    id("org.springframework.boot") version "2.3.3.RELEASE"
+    id("org.springframework.boot") version "2.4.1"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
 
-    id("io.freefair.aspectj.post-compile-weaving") version "5.2.1"
+    id("io.freefair.aspectj.post-compile-weaving") version "5.3.0"
 }
 
 group = "toker"
@@ -27,34 +27,28 @@ dependencies {
     implementation(kotlin("stdlib"))
     runtimeOnly(kotlin("reflect"))
 
-    implementation("org.springframework.boot:spring-boot-starter:2.3.3.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter:2.4.1")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test:2.3.3.RELEASE") {
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.4.1") {
         exclude(group="org.junit.vintage", module="junit-vintage-engine")
     }
 
-    implementation("org.springframework.boot:spring-boot-starter-security:2.3.3.RELEASE")
-    implementation("org.springframework.boot:spring-boot-starter-web:2.3.3.RELEASE")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.3.3.RELEASE")
-    implementation("org.springframework.boot:spring-boot-starter-cache:2.3.3.RELEASE")
-    implementation("org.springframework.boot:spring-boot-starter-websocket:2.3.3.RELEASE")
-    implementation("org.springframework.session:spring-session-core:2.3.0.RELEASE")
-    implementation("org.springframework.security:spring-security-openid:5.3.3.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-security:2.4.1")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.4.1")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.4.1")
+    implementation("org.springframework.session:spring-session-core:2.4.1")
     implementation("org.springframework.security:spring-security-jwt:1.1.0.RELEASE")
-    implementation("org.springframework.security:spring-security-messaging:5.3.3.RELEASE")
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.11.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.0")
 
-    kapt("org.hibernate:hibernate-jpamodelgen:5.4.17.Final")
-    implementation("org.hibernate:hibernate-ehcache:5.4.17.Final")
-    implementation("org.postgresql:postgresql:42.2.16")
-    implementation("org.apache.commons:commons-dbcp2:2.7.0")
+    kapt("org.hibernate:hibernate-jpamodelgen:5.4.27.Final")
+    implementation("org.postgresql:postgresql:42.2.18")
+    implementation("org.apache.commons:commons-dbcp2:2.8.0")
 
     implementation("com.auth0:java-jwt:3.10.0")
 
     implementation("org.aspectj:aspectjrt:1.9.6")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:1.4.10")
+    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:1.4.21")
 }
 
 kapt {
