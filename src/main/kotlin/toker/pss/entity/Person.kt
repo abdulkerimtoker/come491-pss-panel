@@ -6,7 +6,7 @@ import javax.persistence.*
 class Person(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    var id: Int?,
+    var id: Int? = null,
 
     @Column(nullable = false)
     var name: String,

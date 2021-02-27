@@ -6,14 +6,11 @@ import javax.persistence.*
 class Signal(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    var id: Int?,
+    var id: Int? = null,
 
     @Column(nullable = false)
-    var port: Int,
+    var name: String,
 
     @Column(nullable = false)
-    var initialDelay: Int,
-
-    @Column(nullable = false)
-    var repetance: Int
+    var description: String
 )

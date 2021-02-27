@@ -1,10 +1,7 @@
 package toker.pss.entity
 
 import toker.pss.entity.pk.PermissionAssignmentPK
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.IdClass
-import javax.persistence.ManyToOne
+import javax.persistence.*
 
 @Entity
 @IdClass(PermissionAssignmentPK::class)

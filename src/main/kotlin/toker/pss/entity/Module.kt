@@ -6,11 +6,14 @@ import javax.persistence.*
 class Module(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    var id: Int?,
+    var id: Int? = null,
 
     @Column(nullable = false, unique = true)
     var name: String,
 
     @Column
     var description: String
-)
+) {
+    @ManyToOne
+    lateinit var signal: Signal
+}

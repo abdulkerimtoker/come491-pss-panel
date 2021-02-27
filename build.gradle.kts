@@ -10,13 +10,12 @@ plugins {
 
     id("org.springframework.boot") version "2.4.1"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
-
-    id("io.freefair.aspectj.post-compile-weaving") version "5.3.0"
 }
 
 group = "toker"
 version = "1.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_14
+java.targetCompatibility = JavaVersion.VERSION_14
 
 repositories {
     mavenCentral()
@@ -28,10 +27,6 @@ dependencies {
     runtimeOnly(kotlin("reflect"))
 
     implementation("org.springframework.boot:spring-boot-starter:2.4.1")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test:2.4.1") {
-        exclude(group="org.junit.vintage", module="junit-vintage-engine")
-    }
 
     implementation("org.springframework.boot:spring-boot-starter-security:2.4.1")
     implementation("org.springframework.boot:spring-boot-starter-web:2.4.1")
@@ -48,11 +43,14 @@ dependencies {
     implementation("com.auth0:java-jwt:3.10.0")
 
     implementation("org.aspectj:aspectjrt:1.9.6")
-    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:1.4.21")
 }
 
 kapt {
     useBuildCache = true
+}
+
+noArg {
+    annotation("toker.pss.annotation.PKClass")
 }
 
 idea {
@@ -61,3 +59,6 @@ idea {
         generatedSourceDirs.addAll(files("build/generated/source/kapt/main", "build/generated/source/kaptKotlin/main"))
     }
 }
+
+val compileKotlin: org.jetbrains.kotlin.gradle.tasks.KotlinCompile by tasks
+compileKotlin.kotlinOptions.jvmTarget = JavaVersion.VERSION_14.toString()

@@ -7,7 +7,7 @@ import javax.persistence.Id
 @Entity
 class Permission(
     @Id
-    var id: Int?,
+    var id: Int? = null,
 
     @Column(nullable = false, unique = true)
     var name: String,

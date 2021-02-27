@@ -6,7 +6,7 @@ import javax.persistence.*
 class Picture(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    var id: Int?,
+    var id: Int? = null,
 
     @ManyToOne
     var person: Person
